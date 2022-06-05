@@ -1,0 +1,156 @@
+<html>
+
+<head>
+  <title>The Truth About Alt</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="alt.ico" />
+
+  <script>
+    //https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh
+    const clickAudio = new Audio("audio/web_SoundFX_254286__jagadamba__mechanical-switch.mp3");
+    const humAudio = new Audio("audio/234918__timbahrij__ambient-low-hum-aircon.mp3");
+    let speed = 50;
+
+    const getRandomNumberBetween = (min, max) => {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    const pickFrom = (array) => {
+      return array[getRandomNumberBetween(0, array.length - 1)];
+    }
+
+    const sleep = (ms) => {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    const wrapper = `<span class="fadein" style="color:red;">`
+    const wrapperEnd = `</span>`;
+
+    const voidWrapper = `<span class="void">`;
+    const transcript = async () => {
+      const linesUnedited = `
+
+      ${wrapper}CensoredSpeaker 1:${wrapperEnd} ${voidWrapper}Good evening,${wrapperEnd}${wrapper} Parker${wrapperEnd}${voidWrapper}. I see that you've made yourself comfortable in your... location.  Do ${wrapperEnd}${wrapper}you have${wrapperEnd}${voidWrapper} what I${wrapperEnd} ${wrapper}asked${wrapperEnd} of you${wrapper}?${wrapperEnd}
+      Speaker 2: this is regular content
+      Speaker 1: this is regular content
+
+ 
+      `;
+
+      const lines = linesUnedited.split("\n");
+
+      const terminal = document.querySelector("#terminal");
+      terminal.innerHTML = "";
+      for (let line of lines) {
+        const element = document.createElement("p");
+        if (line.includes("CensoredSpeaker 1")) {
+          element.style.color = "black";
+        } else if (line.includes("Speaker 1")) {
+          element.style.color = "Red";
+
+        }
+        terminal.append(element);
+        await typeWrite(terminal, element, line)
+        await sleep(speed * 10);
+
+      }
+    }
+
+    const killer = (parent) => {
+      const element = document.createElement("p");
+      element.classList.add("killer")
+      element.innerHTML = "[One]"
+      parent.append(element);
+
+    }
+
+    const doChunkAllAtOnce = (ele, start_index, text) => {
+      const offset = 0;
+      //look for ending offset
+      //create new span element
+      //have its inner html be the chunk
+      //return the new stop index
+      //ignore any tag stuff before this point (it was already processed)
+      const subtext = text.substring(start_index)
+      const starting_char = text[start_index];
+      let charsTillEnd = 0;
+      if (starting_char === "<") {
+        charsTillEnd = subtext.indexOf(">")
+      } else if (starting_char === "]") {
+        charsTillEnd = subtext.indexOf("]")
+      }
+
+      ele.innerHTML = text.substring(0, start_index + charsTillEnd);
+      return start_index + charsTillEnd;
+    }
+
+    //this version of typeWrite skips certain tags but does them all at once
+    //(necessary to capture html)
+    //v1 just skips lines that start with [
+    //and v2 doesn't play a sound or sleep between [ and ] tags
+    //but neither is sufficient to handle html, so v3 is born
+    //i will, of course, forget where v3 is.
+    //v2, btw, is in SecurityLog
+    //and v1 is in ATranscript and ASecondTranscript
+    //because YES the code is intentionally a shitty maze for my future self
+    //and i guess any future Heirs
+    const typeWrite = async (scroll_element, element, text) => {
+      typing = true;
+      let skipping = false;
+      for (let i = 0; i < text.length; i++) {
+        if (text.charAt(i) === "[" || text.charAt(i) === "<") {
+          skipping = true;
+          i = doChunkAllAtOnce(element, i, text);
+        }
+        if (!skipping) {
+          await sleep(speed);
+          clickAudio.play();
+          element.innerHTML += text.charAt(i);
+        }
+        scroll_element.scrollTop = scroll_element.scrollHeight;
+        skipping = false;
+        if (!typing) {
+          break;
+        }
+      }
+    }
+
+    const play = () => {
+      transcript();
+    }
+
+
+    window.onload = () => {
+      window.onclick = () => {
+        clickAudio.play();
+        if (humAudio.paused) {
+          humAudio.loop = true;
+          humAudio.play();
+        }
+      }
+
+      window.onmousedown = () => {
+        speed = 0;
+      }
+      window.onmouseup = () => {
+        speed = 50;
+      }
+    }
+  </script>
+
+
+</head>
+
+<body>
+  <div id="crt">
+    <div class="scanline"></div>
+    <div class="lines"></div>
+
+    <div id="terminal">
+      <button onClick="play()">Click To Play Transcript</button>
+    </div>
+  </div>
+
+</body>
+
+</html>
