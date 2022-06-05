@@ -83,12 +83,12 @@
     }
 
     const shieldedEyesAreForYourProtection = () => {
+      unprotectedEyes = true;
       alert("The Void Was There For Your Protection.")
       animationLoop();
     }
 
     const realtext = `
-[test]
 ${redWrapper}${noneWrapper}Censored${wrapperEnd}Speaker 1:${wrapperEnd} ${voidWrapper}Good evening,${wrapperEnd}${redWrapper} Parker${wrapperEnd}${voidWrapper}. I see that you've made yourself comfortable in your... location.  Do ${wrapperEnd}${redWrapper}you have${wrapperEnd}${voidWrapper} what I${wrapperEnd} ${redWrapper}asked${wrapperEnd} of you${redWrapper}?${wrapperEnd}
 Speaker 2: You first.
 ${redWrapper}${noneWrapper}Censored${wrapperEnd}Speaker 1:${wrapperEnd} ${voidWrapper}Hm?${wrapperEnd}
@@ -275,6 +275,7 @@ Speaker 1:  Yes. We're even.
           }
         }
         terminal.append(element);
+
         await typeWrite(terminal, element, line)
         await sleep(speed * 10);
 
@@ -320,6 +321,10 @@ Speaker 1:  Yes. We're even.
     //because YES the code is intentionally a shitty maze for my future self
     //and i guess any future Heirs
     const typeWrite = async (scroll_element, element, text) => {
+      if(unprotectedEyes){
+          element.classList.add("glitch");
+          element.title = text;
+        }
       typing = true;
       let skipping = false;
       for (let i = 0; i < text.length; i++) {
