@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>The Truth About Alt</title>
+  <title>A Censored Transcript</title>
   <link rel="stylesheet" href="index.css">
   <link rel="icon" href="alt.ico" />
 
@@ -23,7 +23,7 @@
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    const wrapper = `<span class="fadein" style="color:red;">`
+    const wrapper = `<span class="fade-in-animation" style="color:red;">`
     const wrapperEnd = `</span>`;
 
     const voidWrapper = `<span class="void">`;
@@ -33,6 +33,7 @@
       ${wrapper}CensoredSpeaker 1:${wrapperEnd} ${voidWrapper}Good evening,${wrapperEnd}${wrapper} Parker${wrapperEnd}${voidWrapper}. I see that you've made yourself comfortable in your... location.  Do ${wrapperEnd}${wrapper}you have${wrapperEnd}${voidWrapper} what I${wrapperEnd} ${wrapper}asked${wrapperEnd} of you${wrapper}?${wrapperEnd}
       Speaker 2: this is regular content
       Speaker 1: this is regular content
+      <button>Do You Want To Peer Into the Void Y/N?</button>
 
  
       `;
