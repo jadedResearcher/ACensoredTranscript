@@ -19,6 +19,10 @@ color: red;
   visibility: hidden;
 }
 
+.none{
+  display: none;
+}
+
 .visible{
   visibility: visible;
 }
