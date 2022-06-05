@@ -15,6 +15,7 @@
 
 
     function getParameterByName(name, url) {
+      
       if (!url) {
         url = window.location.href;
       }
@@ -42,7 +43,7 @@
     const wrapperEnd = `</span>`;
 
     const voidWrapper = `<span class="void">`;
-      const noneWrapper = `<span class='none'>`;
+    const noneWrapper = `<span class='none'>`;
     //from info token reader!
     const getBullshitCSS = () => {
       let css = "";
@@ -77,7 +78,7 @@
       setTimeout(animationLoop, 1000);
     }
 
-    const peerIntoVoid =() => {
+    const peerIntoVoid = () => {
       window.location.href = window.location.href + "?seerOfVoid=true";
     }
 
@@ -262,7 +263,9 @@ The Censorship was for your protection, Observer.
       for (let line of lines) {
         const element = document.createElement("p");
         if (line.includes(`${noneWrapper}Censored${wrapperEnd}Speaker 1`)) {
-          element.style.color = "black";
+          if (!unprotectedEyes) {
+            element.style.color = "black";
+          }
         }
         terminal.append(element);
         await typeWrite(terminal, element, line)
@@ -378,6 +381,54 @@ The Censorship was for your protection, Observer.
       <button onClick="play()">Click To Play Transcript</button>
     </div>
   </div>
+
+  <script>
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+        console.log(`%cDON'T LOOK!%c  DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LO DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! OK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK! DON'T LOOK!`, "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:25px;text-decoration:underline;", "font-weight: bold;font-family: 'Courier New', monospace;color:red; font-size:13px;");
+
+    //https://dev.to/composite/a-simple-way-to-detect-devtools-2ag0
+
+    !function () {
+      function detectDevTool(allow) {
+        if (isNaN(+allow)) allow = 100;
+        var start = +new Date(); // Validation of built-in Object tamper prevention.
+        debugger;
+        var end = +new Date(); // Validates too.
+        if (isNaN(start) || isNaN(end) || end - start > allow) {
+          shieldedEyesAreForYourProtection();
+        }
+      }
+      if (window.attachEvent) {
+        if (document.readyState === "complete" || document.readyState === "interactive") {
+          detectDevTool();
+          window.attachEvent('onresize', detectDevTool);
+          window.attachEvent('onmousemove', detectDevTool);
+          window.attachEvent('onfocus', detectDevTool);
+          window.attachEvent('onblur', detectDevTool);
+        } else {
+          setTimeout(argument.callee, 0);
+        }
+      } else {
+        window.addEventListener('load', detectDevTool);
+        window.addEventListener('resize', detectDevTool);
+        window.addEventListener('mousemove', detectDevTool);
+        window.addEventListener('focus', detectDevTool);
+        window.addEventListener('blur', detectDevTool);
+      }
+    }();
+  </script>
 
 </body>
 
