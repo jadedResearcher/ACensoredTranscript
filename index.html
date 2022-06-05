@@ -38,7 +38,7 @@
       return new Promise(resolve => setTimeout(resolve, ms));
     }
 
-    const wrapper = `<span class="red">`
+    const redWrapper = `<span class="red">`
     const wrapperEnd = `</span>`;
 
     const voidWrapper = `<span class="void">`;
@@ -88,10 +88,16 @@
 
     const realtext = `
 
-${wrapper}CensoredSpeaker 1:${wrapperEnd} ${voidWrapper}Good evening,${wrapperEnd}${wrapper} Parker${wrapperEnd}${voidWrapper}. I see that you've made yourself comfortable in your... location.  Do ${wrapperEnd}${wrapper}you have${wrapperEnd}${voidWrapper} what I${wrapperEnd} ${wrapper}asked${wrapperEnd} of you${wrapper}?${wrapperEnd}
-Speaker 2: this is regular content
+${redWrapper}CensoredSpeaker 1:${wrapperEnd} ${voidWrapper}Good evening,${wrapperEnd}${redWrapper} Parker${wrapperEnd}${voidWrapper}. I see that you've made yourself comfortable in your... location.  Do ${wrapperEnd}${redWrapper}you have${wrapperEnd}${voidWrapper} what I${wrapperEnd} ${redWrapper}asked${wrapperEnd} of you${redWrapper}?${wrapperEnd}
+Speaker 2: You first.
+${redWrapper}CensoredSpeaker 1:${wrapperEnd} ${voidWrapper}Hm?${wrapperEnd}
+Speaker 2: Give me what you owe. Then you can have it.
+${redWrapper}CensoredSpeaker 1:${wrapperEnd} Very ${redWrapper}well${wrapperEnd},  ${voidWrapper}then${wrapperEnd}. 
+[${voidWrapper}VIKTOR${wrapperEnd} RUFFLES THROUGH A BAG, AS IF TRYING TO LOOK FOR SOMETHING AT THE BOTTOM OF IT.]
+${redWrapper}CensoredSpeaker 1:${wrapperEnd}${voidWrapper}Nendoroid ${wrapperEnd}, ${redWrapper}Number 586${wrapperEnd}, ${voidWrapper}Chinatsu Yoshikawa${wrapperEnd}.  ${redWrapper}Sells${wrapperEnd} for over  ${redWrapper}10,000${wrapperEnd} ${voidWrapper}yen${wrapperEnd}. Oh-- and some ${redWrapper}food${wrapperEnd} and water, of course. Consi${redWrapper}d${wrapperEnd}er ${redWrapper}i${wrapperEnd}t a court${redWrapper}es${wrapperEnd}y.
+
 Speaker 1: this is regular content
-<button class="void" onClick="peerIntoVoid()">Do You Want To Peer Into the Void Y/N?</button>
+<button class="void" onClick="peerIntoVoid()">Follow Me Into the Void Y/N?</button>
 `;
 
     const diatribeUnedited = `
@@ -198,6 +204,7 @@ The Censorship was for your protection, Observer.
         shieldedEyesAreForYourProtection();
       }
       window.onclick = () => {
+        document.querySelector("#muzak").play();
         clickAudio.play();
         if (humAudio.paused) {
           humAudio.loop = true;
@@ -218,6 +225,10 @@ The Censorship was for your protection, Observer.
 </head>
 
 <body>
+  <audio id="muzak" loop="true">
+    <source src="sounds.mp3" type="audio/mpeg">
+    If you're reading this, audio isn't supported.
+  </audio>
   <div id="crt">
     <div class="scanline"></div>
     <div class="lines"></div>
