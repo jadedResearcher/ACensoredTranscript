@@ -11,12 +11,19 @@ body {
   font-size: 18px;
 }
 
+.red{
+color: red;
+}
+
 .void{
   visibility: hidden;
 }
 
+.visible{
+  visibility: visible;
+}
 .fade-in-animation{
-  animation: fade-in  0.5s steps(10) 1;
+  animation: fade-in  0.01s steps(10) 1;
 }
 
 @keyframes fade-in {
