@@ -68,12 +68,16 @@
         const css = getBullshitCSS();
         p.setAttribute("style", css);
         p.classList.add("visible");
+        p.classList.add("glitch");
+
       }
 
       for (let p of spans) {
         const css = getBullshitCSS();
         p.setAttribute("style", css);
         p.classList.add("visible");
+        p.classList.add("glitch");
+
       }
       setTimeout(animationLoop, 1000);
     }
