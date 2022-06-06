@@ -15,6 +15,11 @@ body {
 color: red;
 }
 
+.pointer{
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .void{
   visibility: hidden;
 }

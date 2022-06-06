@@ -6,12 +6,15 @@
   <link rel="icon" href="alt.ico" />
 
   <script>
+    const audio = new Audio("sounds.mp3");
     //https://dev.to/ekeijl/retro-crt-terminal-screen-in-css-js-4afh
     const clickAudio = new Audio("audio/web_SoundFX_254286__jagadamba__mechanical-switch.mp3");
     const humAudio = new Audio("audio/234918__timbahrij__ambient-low-hum-aircon.mp3");
     let speed = 50;
     //do you REALLY think its a good idea to peer into THIS particular void, Observer?
     let unprotectedEyes = false;
+    //if you agree to stop looking for more, you can view the after image on the inside of your eyelids as much as you want
+    let closedEyes = false;
 
 
     function getParameterByName(name, url) {
@@ -61,6 +64,18 @@
       return css;
     }
 
+    const giveThemAWayOut = (p)=>{
+      if(p.className.includes("red")){
+        p.classList.add("pointer");
+        p.title = "If you agree to stop looking for more, you can view the after image on the inside of your eyelids as much as you want.";
+        p.onclick = ()=>{
+          closedEyes = true;
+          audio.src = "just_box.mp3";
+          audio.play();
+        }
+      }
+    }
+
     const animationLoop = () => {
       const paragraphs = document.querySelectorAll("p");
       const spans = document.querySelectorAll("span");
@@ -69,7 +84,8 @@
         p.setAttribute("style", css);
         p.classList.add("visible");
         p.classList.add("glitch");
-
+        p.title = p.innerText;
+        giveThemAWayOut(p);
       }
 
       for (let p of spans) {
@@ -77,9 +93,12 @@
         p.setAttribute("style", css);
         p.classList.add("visible");
         p.classList.add("glitch");
-
+        p.title = p.innerText;
+        giveThemAWayOut(p);
       }
-      setTimeout(animationLoop, 1000);
+      if(!closedEyes){
+        setTimeout(animationLoop, 1000);
+      }
     }
 
     const peerIntoVoid = () => {
@@ -89,6 +108,9 @@
     const shieldedEyesAreForYourProtection = () => {
       unprotectedEyes = true;
       alert("The Void Was There For Your Protection.")
+      audio.src = "sometimes_you_have_fun.mp3";
+      audio.play();
+
       animationLoop();
     }
 
@@ -364,7 +386,9 @@ Speaker 1:  Yes. We're even.
         shieldedEyesAreForYourProtection();
       }
       window.onclick = () => {
-        document.querySelector("#muzak").play();
+        if(audio.paused){
+          audio.play();
+        }
         clickAudio.play();
         if (humAudio.paused) {
           humAudio.loop = true;
@@ -385,10 +409,6 @@ Speaker 1:  Yes. We're even.
 </head>
 
 <body>
-  <audio id="muzak" loop="true">
-    <source src="sounds.mp3" type="audio/mpeg">
-    If you're reading this, audio isn't supported.
-  </audio>
   <div id="crt">
     <div class="scanline"></div>
     <div class="lines"></div>
