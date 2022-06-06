@@ -67,7 +67,7 @@
     const giveThemAWayOut = (p)=>{
       if(p.className.includes("red")){
         p.classList.add("pointer");
-        p.title = "If you agree to stop looking for more, you can view the after image on the inside of your eyelids as much as you want.";
+        p.title += "If you agree to stop looking for more, you can view the after image on the inside of your eyelids as much as you want.";
         p.onclick = ()=>{
           closedEyes = true;
           audio.src = "just_box.mp3";
